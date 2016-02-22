@@ -1,0 +1,11 @@
+
+ El volumen de la unidad D es 2887A-G00-0
+ El n£mero de serie del volumen es 1613-1208
+ Directorio de D:\masteng\DATA\FPG\STEROID
+
+.              <DIR>        27/09/99  14:59 .
+..             <DIR>        27/09/99  14:59 ..
+STEROID  FPG        12.362  27/09/99  11:59 STEROID.FPG
+LISTA    TXT             0  27/09/99  15:02 lista.txt
+         2 archivos         12.362 bytes
+         2 directorios     115.130.368 bytes libres
