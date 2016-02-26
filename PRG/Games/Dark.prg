@@ -51,8 +51,8 @@ global
 
        1;
 
-    mapasfase[]="dark\mapa1.map","dark\mapa2.map",
-                "dark\mapa3.map","dark\mapa4.map";
+    mapasfase[]="dark/mapa1.map","dark/mapa2.map",
+                "dark/mapa3.map","dark/mapa4.map";
 
     numeromu¤ecosgrandes[1];
     numeromu¤ecospeques[1];
@@ -86,9 +86,9 @@ BEGIN
     set_mode (m640x480);
     LOOP
 
-        idfilefnt[1]=load_fnt("dark\dark00.fnt");
-        idfilemap[0]=load_map("dark\credits.map");
-        load_pal("dark\credits.map");
+        idfilefnt[1]=load_fnt("dark/dark00.fnt");
+        idfilemap[0]=load_map("dark/credits.map");
+        load_pal("dark/credits.map");
         put_screen(0,idfilemap[0]);
         write(idfilefnt[1],320,200,4,"Loading...");
         fade_on();
@@ -97,22 +97,22 @@ BEGIN
         END
         delete_text(all_text);
         unload_map(idfilemap[0]);
-        idfilefpg[0]=load_fpg("dark\animas.fpg");
-        idfilefpg[1]=load_fpg("dark\orco1.fpg");
-        idfilefpg[2]=load_fpg("dark\diablo1.fpg");
-        idfilefnt[0]=load_fnt("dark\dark0.fnt");
-        idfilefnt[2]=load_fnt("dark\dark01.fnt");
-        idsoundbestia[0]=load_pcm("dark\bestia00.pcm",0);
-        idsoundbestia[1]=load_pcm("dark\bestia01.pcm",0);
-        idsoundbestia[2]=load_pcm("dark\bestia03.pcm",0);
-        idsoundbestia[3]=load_pcm("dark\bestia02.pcm",0);
+        idfilefpg[0]=load_fpg("dark/animas.fpg");
+        idfilefpg[1]=load_fpg("dark/orco1.fpg");
+        idfilefpg[2]=load_fpg("dark/diablo1.fpg");
+        idfilefnt[0]=load_fnt("dark/dark0.fnt");
+        idfilefnt[2]=load_fnt("dark/dark01.fnt");
+        idsoundbestia[0]=load_pcm("dark/bestia00.pcm",0);
+        idsoundbestia[1]=load_pcm("dark/bestia01.pcm",0);
+        idsoundbestia[2]=load_pcm("dark/bestia03.pcm",0);
+        idsoundbestia[3]=load_pcm("dark/bestia02.pcm",0);
         fade_off();
         WHILE (fading)
             FRAME;
         END
 
-        idfilemap[0]=load_map("dark\screen.map");
-        load_pal("dark\screen.map");
+        idfilemap[0]=load_map("dark/screen.map");
+        load_pal("dark/screen.map");
         put_screen(0,idfilemap[0]);
         unload_map(idfilemap[0]);
         mouse.graph=0;
@@ -128,8 +128,8 @@ BEGIN
         clear_screen();
         delete_text(all_text);
         let_me_alone();
-        idfilemap[0]=load_map("dark\select.map");
-        load_pal("dark\select.map");
+        idfilemap[0]=load_map("dark/select.map");
+        load_pal("dark/select.map");
         put_screen(0,idfilemap[0]);
         unload_map(idfilemap[0]);
         write(idfilefnt[0],320,40,4,"Select your");
@@ -191,7 +191,7 @@ BEGIN
             IF (gameover==1)
                 mouse.graph=0;mouse.left=0;scan_code=0;
                 fade_on();
-                idfilemap[3]=load_map("dark\credits.map");
+                idfilemap[3]=load_map("dark/credits.map");
                 put_screen(0,idfilemap[3]);
                 write(idfilefnt[2],320,40,4,"- Game Over -");
                 write(idfilefnt[2],580,100,5,"Units killed:");
@@ -200,7 +200,7 @@ BEGIN
                 write_int(idfilefnt[2],550,160,3,&enemigosmuertos);
                 write(idfilefnt[2],320,220,4,"Total score:");
                 write_int(idfilefnt[2],320,280,4,&puntuacionjugador);
-                load_pal("dark\credits.map");
+                load_pal("dark/credits.map");
                 WHILE (scan_code==0 AND NOT mouse.left)
                     FRAME;
                 END
@@ -235,8 +235,8 @@ BEGIN
     delete_text(all_text);
     let_me_alone();
     unload_fnt(idfilefnt[0]);
-    idfilemap[0]=load_map("dark\credits.map");
-    load_pal("dark\credits.map");
+    idfilemap[0]=load_map("dark/credits.map");
+    load_pal("dark/credits.map");
     put_screen(0,idfilemap[0]);
     unload_map(idfilemap[0]);
     write(idfilefnt[2],320,40,4,"Programming:");
@@ -491,8 +491,8 @@ BEGIN
         END
         scan_code=0; mouse.left=0;
         IF (fase==0) fase=4; END
-        idfilemap[0]=load_map("dark\credits.map");
-        load_pal("dark\credits.map");
+        idfilemap[0]=load_map("dark/credits.map");
+        load_pal("dark/credits.map");
         put_screen(0,idfilemap[0]);
         write(idfilefnt[1],520,40,5,"Final Level:");
         write_int(idfilefnt[1],520,40,3,&fase);
@@ -1315,8 +1315,8 @@ END
 PROCESS ponnegro()
 
 BEGIN
-    idfilemap[1]=load_map("dark\negro.map");
-    idfilemap[4]=load_map("dark\negromin.map");
+    idfilemap[1]=load_map("dark/negro.map");
+    idfilemap[4]=load_map("dark/negromin.map");
     ctype=c_scroll;
     x=768;
     y=768;
