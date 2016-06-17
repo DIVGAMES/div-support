@@ -37,18 +37,18 @@ GLOBAL
 
 
     phases[]=
-             "dat\noid\screen.1",
-             "dat\noid\screen.2",
-             "dat\noid\screen.3",
-             "dat\noid\screen.4",
-             "dat\noid\screen.5",
-             "dat\noid\screen.6",
-             "dat\noid\screen.7",
-             "dat\noid\screen.8",
-             "dat\noid\screen.9",
-             "dat\noid\screen.10",
-             "dat\noid\screen.11",
-             "dat\noid\screen.12";
+             "dat\screen.1",
+             "dat\screen.2",
+             "dat\screen.3",
+             "dat\screen.4",
+             "dat\screen.5",
+             "dat\screen.6",
+             "dat\screen.7",
+             "dat\screen.8",
+             "dat\screen.9",
+             "dat\screen.10",
+             "dat\screen.11",
+             "dat\screen.12";
 
 LOCAL
     state=0;

@@ -86,7 +86,7 @@ GLOBAL
 
     // Textos de las opciones de combate
     nombres[]="RIPLEY","BISHOP","ALIEN","NOSTROMO";
-    escenarios[]="LEVEL 1 : THE STORE ","LEVEL 2 : THE SEA","LEVEL 3: THE COLUMNS";
+    escenarios[]="LEVEL 1 : THE ARENA ","LEVEL 2 : THE STORE","LEVEL 3: THE COLUMNS";
     niveles[]="EASY MODE","NORMAL MODE","HARD MODE";
     modos[]="COMPUTER vs COMPUTER"," CURSOR KEYS vs COMPUTER",
             "QA-RT-X KEYS vs COMPUTER","QA-RT-X KEYS vs CURSOR KEYS";
