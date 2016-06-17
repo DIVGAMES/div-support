@@ -9,11 +9,8 @@ compiler_options _extended_conditions;
 
 PROGRAM noid;
 
-//    import "ascii.dll";
-
 CONST
     speed_r=8;
-
 
 GLOBAL
     small_r[2];
@@ -40,18 +37,18 @@ GLOBAL
 
 
     phases[]=
-             "dat/noid/screen.1",
-             "dat/noid/screen.2",
-             "dat/noid/screen.3",
-             "dat/noid/screen.4",
-             "dat/noid/screen.5",
-             "dat/noid/screen.6",
-             "dat/noid/screen.7",
-             "dat/noid/screen.8",
-             "dat/noid/screen.9",
-             "dat/noid/screen.10",
-             "dat/noid/screen.11",
-             "dat/noid/screen.12";
+             "dat\noid\screen.1",
+             "dat\noid\screen.2",
+             "dat\noid\screen.3",
+             "dat\noid\screen.4",
+             "dat\noid\screen.5",
+             "dat\noid\screen.6",
+             "dat\noid\screen.7",
+             "dat\noid\screen.8",
+             "dat\noid\screen.9",
+             "dat\noid\screen.10",
+             "dat\noid\screen.11",
+             "dat\noid\screen.12";
 
 LOCAL
     state=0;
@@ -62,18 +59,16 @@ LOCAL
 
 BEGIN
     set_fps(30,0);
-    load_fpg("noid/noid.fpg");
-    load_fpg("noid/noid2.fpg");
+    load_fpg("noid\noid.fpg");
+    load_fpg("noid\noid2.fpg");
 
-    //import "hboy.so_";
+    s_hit=load_pcm("noid\caida7.pcm",0);
+    s_bonus=load_pcm("noid\fx34.pcm",0);
+    s_fire=load_pcm("noid\disparo5.pcm",0);
+    s_metal=load_pcm("noid\metal10.pcm",0);
+    s_bat=load_pcm("noid\tubo.pcm",0);
 
-    s_hit=load_pcm("noid/caida7.pcm",0);
-    s_bonus=load_pcm("noid/fx34.pcm",0);
-    s_fire=load_pcm("noid/disparo5.pcm",0);
-    s_metal=load_pcm("noid/metal10.pcm",0);
-    s_bat=load_pcm("noid/tubo.pcm",0);
-
-    load_fnt("noid/noid.fnt");
+    load_fnt("noid\noid.fnt");
 
     LOOP
         scan_code=0;
@@ -84,14 +79,14 @@ BEGIN
         delete_text(all_text);
         let_me_alone();
         put_screen(1,1);
-        load_pal("noid/noid2.fpg");
+        load_pal("noid\noid2.fpg");
         fade_on();
 
         REPEAT
             FRAME;
         UNTIL (scan_code<>0)
         fade_off();
-        load_pal("noid/noid.fpg");
+        load_pal("noid\noid.fpg");
         fin_play=0;
         demo=1;
         text_demo();
@@ -801,9 +796,9 @@ BEGIN
     delete_text(all_text);
     let_me_alone();
     put_screen(1,2);
-    load_pal("noid/noid2.fpg");
+    load_pal("noid\noid2.fpg");
 
-    font=load_fnt("noid/noid2.fnt");
+    font=load_fnt("noid\noid2.fnt");
 
 
     write(font,160,30,4,"- CREDITS -");

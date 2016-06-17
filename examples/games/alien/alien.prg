@@ -452,14 +452,14 @@ BEGIN
                 END
             END
         END
-        y-=12;
+        y-=12;      
         FRAME;
     END
 
-
+    
     IF (touch)
         touch.energy-=300;
-        impact(x,y);
+        impact(x,y);   
     END
 END
 
@@ -471,26 +471,26 @@ END
 PROCESS firing_missiles();
 
 PRIVATE
-    j=0;
+    j=0;    
 
 BEGIN
     ctype=c_scroll;
     z=father.z-1;
     priority=5;
     file=file1;
-    graph=103;
-    x=father.x;
-    y=father.y;
-    smoke(25,x,y);
+    graph=103;          
+    x=father.x;         
+    y=father.y;         
+    smoke(25,x,y);       
 
-
+    
     FROM j=0 TO 10;
         y-=12;
         z=y;
         FRAME;
     END
 
-    explosion_3(x,y);
+    explosion_3(x,y);   
 END
 
 
@@ -501,45 +501,45 @@ END
 PROCESS firing_tank();
 
 PRIVATE
-    angle_a_robot;
-    x1=0;
+    angle_a_robot;     
+    x1=0;               
     y1=0;
     x2=0;
     y2=0;
 
 BEGIN
-    ctype=c_scroll;
+    ctype=c_scroll;         
     file=file1;
-    graph=104;
+    graph=104;              
 
-
-
+    
+    
     get_point(file1,father.graph,1,&x1,&y1);
     get_point(file1,father.graph,2,&x2,&y2);
 
-
+    
     angle_a_robot=fget_angle(x1,y1,x2,y2);
 
-
-
+    
+    
     get_point(file1,father.graph,0,&x1,&y1);
     get_point(file1,father.graph,2,&x2,&y2);
 
-
+    
     x=(x2-x1)+(father.x);
     y=(y2-y1)+(father.y);
 
-    sound(s_firing_t,100,512);
+    sound(s_firing_t,100,512); 
 
-    Velocity=5;
-
+    Velocity=5;                
+    
     WHILE (NOT out_region(id,0) AND NOT collision(TYPE robot) AND NOT collision(TYPE robot_legs))
         x=x+get_distx(angle_a_robot,Velocity);
         y=y+get_disty(angle_a_robot,Velocity);
         angle=angle_a_robot;
         FRAME;
     END
-
+    
     IF (NOT out_region(id,0))
         impact(x,y);
         energy_robot-=1000;
@@ -554,41 +554,41 @@ END
 PROCESS firing_helicopter();
 
 PRIVATE
-    angle_a_robot;
-    id_smoke;
+    angle_a_robot;     
+    id_smoke;            
 
 BEGIN
     z=-48;
-    ctype=c_scroll;
+    ctype=c_scroll;             
     file=file1;
-    graph=102;
-    sound(s_explosion,64,512);
-    x_res=father.x*10000;
-    y_res=father.y*10000;
+    graph=102;                  
+    sound(s_explosion,64,512);  
+    x_res=father.x*10000;     
+    y_res=father.y*10000;     
     x=x_res/10000;
     y=y_res/10000;
-    angle=get_angle(id_robot);
-    id_smoke=smoke(25,x,y);
+    angle=get_angle(id_robot);  
+    id_smoke=smoke(25,x,y);       
     Velocity=40000;
 
-
+    
     WHILE (NOT out_region(id,0) AND NOT collision(TYPE robot) AND NOT collision(TYPE robot_legs))
-
+        
         x_res=x_res+get_distx(angle,Velocity);
         y_res=y_res+get_disty(angle,Velocity);
         x=x_res/10000;
         y=y_res/10000;
-        IF (Velocity<80000)
+        IF (Velocity<80000)        
             Velocity+=5000;
         END
         FRAME;
     END
-
+    
     IF (NOT out_region(id,0))
         impact(x,y);
         energy_robot-=1000;
     END
-    signal(id_smoke,s_kill_tree);
+    signal(id_smoke,s_kill_tree);    
 END
 
 
@@ -599,18 +599,18 @@ END
 PROCESS smoke(size,x_res,y_res);
 
 BEGIN
-
+    
     IF (size>5)
         smoke(size-5,x_res,y_res);
     END
-    ctype=c_scroll;
+    ctype=c_scroll;         
     graph=105;
-    file=file1;
-    flags=4;
+    file=file1;          
+    flags=4;                
     LOOP
         x=x_res;
         y=y_res;
-        IF (father)
+        IF (father)         
             x_res=father.x;
             y_res=father.y;
         END
@@ -626,13 +626,13 @@ END
 PROCESS enemy_thrower();
 
 BEGIN
+    
 
-
-
-    bunker(90,54,1506);
-    bunker(90,32,1184);
-    bunker(90,122,463);
-    bunker(92,329,2248);
+    
+    bunker(90,54,1506);         
+    bunker(90,32,1184);         
+    bunker(90,122,463);         
+    bunker(92,329,2248);        
     bunker(92,306,1942);
     bunker(92,306,1234);
 
