@@ -4,6 +4,8 @@
 // Date:    28/04/97
 //--------------------------------------------------------------------
 
+COMPILER_OPTIONS _extended_conditions;
+
 PROGRAM Tutorial_4;
 
 GLOBAL
@@ -15,7 +17,6 @@ BEGIN
 
     load_fpg("tutorial\tutor4.fpg");    // Loads graphics' file
     put_screen(0,1);                    // Puts background screen
-
     // Puts score and topscore texts
     write_int(0,64,8,0,&score);
     write_int(0,256,8,0,&topscore);
@@ -54,7 +55,7 @@ BEGIN
     worm_segment(128,priority+1);
 
     REPEAT
-        FRAME;              // Visualizes everything
+        FRAME(200);              // Visualizes everything
 
         // Checks cursor keys, and changes increments
         IF (key(_right))
@@ -71,7 +72,7 @@ BEGIN
         END
 
         // Checks if worm has collided with apple
-        IF (apple_id==collision(TYPE apple))
+        IF (apple_id=collision(TYPE apple))
             // Eliminates that apple
             signal(apple_id,s_kill);
             apples--;         // Reduces apples' counter
